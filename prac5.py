@@ -9,6 +9,9 @@ from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.regularizers import l2
 from tensorflow.keras.callbacks import EarlyStopping
 
+
+
+# Generate a synthetic binary classification dataset
 # Dataset (intentionally easy to overfit)
 X, y = make_classification(
     n_samples=800,
@@ -48,7 +51,6 @@ history_base = baseline.fit(
     validation_data=(X_val, y_val),
     verbose=0
 )
-
 
 # model with L2 regularization and Dropout + EarlyStopping
 def regularized_model():
@@ -111,7 +113,6 @@ plt.legend()
 
 plt.show()
 
-
 # b) Regression using Mean Squared Error (MSE)
 
 from sklearn.datasets import make_regression
@@ -151,7 +152,6 @@ history = model.fit(
     verbose=0
 
 )
-
 # Plot Regression Loss
 plt.plot(history.history['loss'], label='Train Loss')
 plt.plot(history.history['val_loss'], label='Val Loss')
@@ -160,4 +160,3 @@ plt.ylabel("MSE Loss")
 plt.title("Regression using MSE Loss")
 plt.legend()
 plt.show()
-
